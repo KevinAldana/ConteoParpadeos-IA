@@ -101,9 +101,9 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     return render_template('Index.html')
-@app.route('/')
+@app.route('/video')
 def video():
-    return Response(gen_frame(),mimetype='multipart/x-mixed-replace; boundary=frame'), render_template('Index.html')
+    return Response(gen_frame(),mimetype='multipart/x-mixed-replace; boundary=frame')
 #Ejecutar el server
 if __name__ == "__main__":
     app.run( debug=True)
