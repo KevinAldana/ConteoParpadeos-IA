@@ -98,10 +98,12 @@ def gen_frame():
 app = Flask(__name__)
 
 #RutaPrincipal
-
+@app.route('/')
+def index():
+    return render_template('Index.html')
 @app.route('/')
 def video():
-    return Response(gen_frame(),mimetype='multipart/x-mixed-replace; boundary=frame')
+    return Response(gen_frame(),mimetype='multipart/x-mixed-replace; boundary=frame'), render_template('Index.html')
 #Ejecutar el server
 if __name__ == "__main__":
     app.run( debug=True)
